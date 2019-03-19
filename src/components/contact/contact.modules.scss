@@ -1,0 +1,12 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 20px;
+}
+
+.contact-links {
+    font-size: 7vw;
+    a {
+        text-align: center;
+    }
+}

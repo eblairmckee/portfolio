@@ -27,8 +27,26 @@ p {
     font-size: $font-size;
 }
 
+.link {
+    color: $blackColor;
+    text-decoration: none;
+    transition: all 0.3s;
+    background: linear-gradient(to right, white 50%, $accent 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    font-size: 80px;
+
+    @media (max-width: 750px) {
+        font-size: 32px;
+    }
+
+    &:hover {
+        background-position: left bottom;
+    }
+}
+
 .triangles-overlay {
-    background-image: url('/src/assets/3d-cubes.png');
+    background-image: url('assets/3d-cubes.png');
     background-size: contain;
     background-position: top left;
     background-repeat: no-repeat;
@@ -67,6 +85,7 @@ header {
         background: $accent;
         display: inline;
         color: $blackColor;
+        font-weight: bold;
 
         @media (max-width: 900px) {
             font-size: 18px;
@@ -76,7 +95,7 @@ header {
 
 .what-i-do-section {
     display: grid;
-    grid-template-columns: 50vw 1fr;
+    grid-template-columns: 1fr auto;
     grid-gap: 10px;
     align-items: center;
     justify-content: space-around;
@@ -93,13 +112,18 @@ header {
         text-align: center;
         line-height: 10vw;
         text-transform: uppercase;
+        background: none;
     }
 
     ul {
         list-style: none;
+        min-width: 600px;
+        @media(max-width: 1200px){
+            min-width: auto;
+        }
 
         li {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 600;
             text-align: right;
             margin-bottom: 20px;
@@ -161,24 +185,6 @@ header {
         @media (max-width: 750px) {
             width: 300px;
             height: 300px;
-        }
-    }
-
-    h2>a {
-        color: $blackColor;
-        text-decoration: none;
-        transition: all 0.3s;
-        background: linear-gradient(to right, $accent 50%, white 50%);
-        background-size: 200% 100%;
-        background-position: right bottom;
-        font-size: 80px;
-
-        @media (max-width: 750px) {
-            font-size: 32px;
-        }
-
-        &:hover {
-            background-position: left bottom;
         }
     }
 }

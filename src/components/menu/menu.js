@@ -35,6 +35,7 @@ export class Menu extends React.Component {
                         <li><NavLink exact to="/" onClick={this.handleMenuLinkClick}>Home</NavLink></li>
                         <li><NavLink to="/work" onClick={this.handleMenuLinkClick}>Work</NavLink></li>
                         <li><NavLink to="/contact" onClick={this.handleMenuLinkClick}>Contact</NavLink></li>
+                        <li><NavLink to="/data-vis" onClick={this.handleMenuLinkClick}>Experiment</NavLink></li>
                     </ul>
                 </nav>
             </div>

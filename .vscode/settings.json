@@ -8,15 +8,10 @@
         "textLink.foreground": "#AB47BC",
         "progressBar.background": "#AB47BC",
         "pickerGroup.foreground": "#AB47BC",
-        "tab.activeBorder": "#AB47BC",
         "notificationLink.foreground": "#AB47BC",
         "editorWidget.resizeBorder": "#AB47BC",
         "editorWidget.border": "#AB47BC",
         "settings.modifiedItemForeground": "#AB47BC",
-        "panelTitle.activeBorder": "#AB47BC",
-        "titleBar.activeBackground": "#9edd54",
-        "titleBar.inactiveBackground": "#9edd5499",
-        "titleBar.activeForeground": "#15202b",
-        "titleBar.inactiveForeground": "#15202b99"
+        "panelTitle.activeBorder": "#AB47BC"
     }
 }

@@ -41,6 +41,12 @@ const work = [
         link: 'https://constellix.com/pricing/pricing-calculator/'
     },
     {
+        name: 'Constellix Sign In Screen',
+        src: '../../../work/constellix-sign-in.png',
+        categories: 'design ux webdev', 
+        link: '/#/work'
+    },
+    {
         name: 'Constellix UI idea',
         src: '../../../work/constellix-ui-design.png',
         categories: 'design ux', 

@@ -1,180 +1,193 @@
-import React from 'react';
-import { render } from 'react-snapshot';
-import './portfolio.modules.scss';
-import {Helmet} from 'react-helmet';
+import React, { useState } from 'react';
 
 const work = [
-    {
-        name: 'Constellix website (new)',
-        src: '../../../work/constellix-homepage.png',
-        categories: 'webDev design ux',
-        link: 'https://constellix.com'
-    },
-    {
-        name: 'DNS Made Easy website',
-        src: '../../../work/dnsmadeeasy-site.png',
-        categories: 'webDev design ux',
-        link: 'https://dnsmadeeasy.com'
-    },
-    {
-        name: 'SPF Wizard',
-        src: '../../../work/spf-wizard.png',
-        categories: 'webDev design ux', 
-        link: 'https://spfrecord.io'
-    },
-    {
-        name: 'Sonar Lite web app',
-        src: '../../../work/sonar-lite-webapp.png',
-        categories: 'design ux', 
-        link: 'https://sonar-lite.constellix.com/'
-    },
-    {
-        name: 'Domains Made Easy',
-        src: '../../../work/domains-made-easy.png',
-        categories: 'webDev wordPress design', 
-        link: 'https://domainsmadeeasy.com'
-    },
-    {
-        name: 'Pricing calculator',
-        src: '../../../work/pricing-calc.png',
-        categories: 'design ux webdev', 
-        link: 'https://constellix.com/pricing/pricing-calculator/'
-    },
-    {
-        name: 'Constellix Sign In Screen',
-        src: '../../../work/constellix-sign-in.png',
-        categories: 'design ux webdev', 
-        link: '/#/work'
-    },
-    {
-        name: 'Constellix UI idea',
-        src: '../../../work/constellix-ui-design.png',
-        categories: 'design ux', 
-        link: '/#/work'
-    },
-    {
-        name: 'Constellix blog',
-        src: '../../../work/constellix-blog.png',
-        categories: 'webDev wordPress writing', 
-        link: 'http://news.constellix.com'
-    },
-    {
-        name: 'DNS Made Easy blog',
-        src: '../../../work/dnsme-blog.png',
-        categories: 'webDev wordPress writing', 
-        link: 'http://social.dnsmadeeasy.com'
-    },
-    {
-        name: 'Constellix landing page idea',
-        src: '../../../work/constellix-landing-page-idea.png',
-        categories: 'design', 
-        link: '/#/work'
-    },
-    {
-        name: 'Sonar Lite extension',
-        src: '../../../work/rum-ext.png',
-        categories: 'design', 
-        link: 'https://chrome.google.com/webstore/detail/constellix-sonar-lite-net/jaoaipchgmdieejepndehhkgjihmffde?hl=en-US'
-    },
-    {
-        name: 'What Every Web Developer Should Know About DNS',
-        src: '../../../work/dzone.png',
-        categories: 'writing', 
-        link: 'https://dzone.com/articles/what-every-webmaster-should-know-about-dns'
-    },
-    {
-        name: 'Constellix Knowledge Base',
-        src: '../../../work/constellix-help-site.png',
-        categories: 'webDev wordPress', 
-        link: 'http://help.constellix.com'
-    },
-    {
-        name: 'DNS Made Easy Knowledge Base',
-        src: '../../../work/dnsme-help-site.png',
-        categories: 'webDev wordPress', 
-        link: 'http://help.dnsmadeeasy.com'
-    },
-    {
-        name: 'Tiggee website',
-        src: '../../../work/tiggee-site.png',
-        categories: 'webDev design', 
-        link: 'https://tiggee.com'
-    },
-    {
-        name: 'Login screen',
-        src: '../../../work/login-screen.png',
-        categories: 'design ux', 
-        link: '/#/work'
-    },
-    {
-        name: 'Forbes article',
-        src: '../../../work/forbes.png',
-        categories: 'writing', 
-        link: 'https://www.forbes.com/sites/forbestechcouncil/2017/07/03/the-waze-of-dns-has-arrived/'
-    },
-    {
-        name: 'Traffic Steering 101 Video',
-        src: '../../../work/rum-ito-video.png',
-        categories: 'video writing', 
-        link: 'https://constellix.com/solutions/rum-traffic-steering/'
-    },
-    {
-        name: 'Constellix website',
-        src: '../../../work/constellix-site.png',
-        categories: 'webDev design ux',
-        link: 'https://constellix.com'
-    },
+	{
+		name: 'DNSToolbox',
+		src: '../../../work/dnstoolbox.png',
+		categories: 'webDev design ux',
+		stack: 'React, Material UI, Sass'
+	},
+	{
+		name: 'SPF Wizard',
+		src: '../../../work/spf-wizard.png',
+		categories: 'webDev design ux',
+		link: 'https://spfrecord.io',
+		stack: 'JavaScript, Sass, Node, Webpack, Bootstrap'
+	},
+	{
+		name: 'Constellix website (new)',
+		src: '../../../work/constellix-homepage.png',
+		categories: 'webDev design ux',
+		link: 'https://constellix.com',
+		stack: 'Bootstrap, Sass, JQuery'
+	},
+	{
+		name: 'DNS Made Easy website',
+		src: '../../../work/dnsmadeeasy-site.png',
+		categories: 'webDev design ux',
+		link: 'https://dnsmadeeasy.com',
+		stack: 'Bootstrap, Sass, JQuery'
+	},
+	{
+		name: 'Visual Soft website',
+		src: '../../../work/visualsoft.png',
+		categories: 'webDev design ux wordpress',
+		link: 'https://dnsmadeeasy.com',
+		stack: 'Wordpress, CSS, JavaScript, PHP'
+	},
+	{
+		name: 'Sonar Lite web app',
+		src: '../../../work/sonar-lite-webapp.png',
+		categories: 'design ux',
+		link: 'https://sonar-lite.constellix.com/',
+		stack: 'ReactJS, JQuery, Bootstrap'
+	},
+	{
+		name: 'Domains Made Easy',
+		src: '../../../work/domains-made-easy.png',
+		categories: 'webDev wordPress design',
+		link: 'https://domainsmadeeasy.com',
+		stack: 'Wordpress, CSS, JavaScript, PHP'
+	},
+	{
+		name: 'Pricing calculator',
+		src: '../../../work/pricing-calc.png',
+		categories: 'design ux webdev',
+		link: 'https://constellix.com/pricing/pricing-calculator/',
+		stack: 'ReactJS, Bootstrap, Sass'
+	},
+	{
+		name: 'Constellix Sign In Screen',
+		src: '../../../work/constellix-sign-in.png',
+		categories: 'design ux webdev'
+	},
+	{
+		name: 'Constellix UI idea',
+		src: '../../../work/constellix-ui-design.png',
+		categories: 'design ux'
+	},
+	{
+		name: 'Constellix blog',
+		src: '../../../work/constellix-blog.png',
+		categories: 'webDev wordPress writing',
+		link: 'http://news.constellix.com',
+		stack: 'Wordpress, CSS, JavaScript, PHP'
+	},
+	{
+		name: 'DNS Made Easy blog',
+		src: '../../../work/dnsme-blog.png',
+		categories: 'webDev wordPress writing',
+		link: 'http://social.dnsmadeeasy.com',
+		stack: 'Wordpress, CSS, JavaScript, PHP'
+	},
+	{
+		name: 'Constellix landing page idea',
+		src: '../../../work/constellix-landing-page-idea.png',
+		categories: 'design'
+	},
+	{
+		name: 'Sonar Lite extension',
+		src: '../../../work/rum-ext.png',
+		categories: 'design',
+		link: 'https://chrome.google.com/webstore/detail/constellix-sonar-lite-net/jaoaipchgmdieejepndehhkgjihmffde?hl=en-US'
+	},
+	{
+		name: 'What Every Web Developer Should Know About DNS',
+		src: '../../../work/dzone.png',
+		categories: 'writing',
+		link: 'https://dzone.com/articles/what-every-webmaster-should-know-about-dns'
+	},
+	{
+		name: 'Constellix Knowledge Base',
+		src: '../../../work/constellix-help-site.png',
+		categories: 'webDev wordPress',
+		link: 'http://help.constellix.com',
+		stack: 'Wordpress, CSS, JavaScript, PHP'
+	},
+	{
+		name: 'DNS Made Easy Knowledge Base',
+		src: '../../../work/dnsme-help-site.png',
+		categories: 'webDev wordPress',
+		link: 'http://help.dnsmadeeasy.com',
+		stack: 'Wordpress, CSS, JavaScript, PHP'
+	},
+	{
+		name: 'Tiggee website',
+		src: '../../../work/tiggee-site.png',
+		categories: 'webDev design',
+		link: 'https://tiggee.com',
+		stack: 'Sass, JavaScript, JQuery'
+	},
+
+	{
+		name: 'Forbes article',
+		src: '../../../work/forbes.png',
+		categories: 'writing',
+		link: 'https://www.forbes.com/sites/forbestechcouncil/2017/07/03/the-waze-of-dns-has-arrived/'
+	},
+	{
+		name: 'Traffic Steering 101 Video',
+		src: '../../../work/rum-ito-video.png',
+		categories: 'video writing',
+		link: 'https://constellix.com/solutions/rum-traffic-steering/'
+	},
+	{
+		name: 'Constellix website',
+		src: '../../../work/constellix-site.png',
+		categories: 'webDev design ux',
+		link: 'https://constellix.com'
+	}
 ];
 
-class Portfolio extends React.Component {
+export function Portfolio() {
+	const [category, setCategory] = useState('webDev');
+	const [items, setItems] = useState(work.filter(item => item.categories.includes(category)));
 
-    filterWork(e){
-        const filteredWork = work.filter(item => item.categories.includes(e.target.value));
-        console.log(filteredWork);
+	const filterWork = e => {
+		const getFilteredWork = work.filter(item => item.categories.includes(e.target.value));
+		setItems(getFilteredWork);
+		setCategory(e.target.value);
+		console.log(items);
+	};
 
-        const GridItems = ({filteredWork}) => (
-            <div className="gallery">
-              {filteredWork.map(item => (
-                <div className="gallery__item" key={item.name}>
-                    <a href={item.link}>
-                        <img src={item.src} alt={item.name} />
-                    </a>
-                </div>
-              ))}
-            </div>
-          );
-
-          render(<GridItems filteredWork={filteredWork}/> , document.getElementById('gridContainer'));
-
-    }
-
-    render(){
-
-        return (
-            <div className="porfolio-grid-section">
-                <Helmet>
-                    <meta charSet="utf-8" />
-                    <title>My Work | Blair McKee's Portfolio</title>
-                    <link rel="canonical" href="https://blairmckee.com/work/" />
-                    <meta name="description" content="Check out my work: web design, front-end development, WordPress, UX design, graphic design, writing samples, and more. " />
-                </Helmet>
-                <div className="click-me__wrapper">
-                    <div className="click-me--arrow"></div>
-                    <p className="click-me--text">Click one</p>
-                </div>
-                <ul className="wrapper categories">
-                    <button value="webDev" className="category" onClick={this.filterWork}>Web Dev</button>
-                    <button value="design" className="category" onClick={this.filterWork}>Design</button>
-                    <button value="ux" className="category" onClick={this.filterWork}>UX</button>
-                    <button value="wordPress" className="category" onClick={this.filterWork}>WordPress</button>
-                    <button value="video" className="category" onClick={this.filterWork}>Video</button>
-                    <button value="writing" className="category" onClick={this.filterWork}>Writing</button>
-                </ul>
-                <div id="gridContainer">
-                </div>
-            </div>
-        );
-    }
+	return (
+		<div className="portfolio__container">
+			<h2>Check out my work</h2>
+			<div className="portfolio__categories">
+				<button value="webDev" className="category" onClick={filterWork}>
+					Web Dev
+				</button>
+				<button value="design" className="category" onClick={filterWork}>
+					Design
+				</button>
+				<button value="ux" className="category" onClick={filterWork}>
+					UX
+				</button>
+				<button value="wordPress" className="category" onClick={filterWork}>
+					WordPress
+				</button>
+				<button value="video" className="category" onClick={filterWork}>
+					Video
+				</button>
+				<button value="writing" className="category" onClick={filterWork}>
+					Writing
+				</button>
+			</div>
+			<div className="portfolio__grid">
+				{items.map(item => (
+					<div className="portfolio__item">
+						<div className="card" key={item.name}>
+							<div className="card__face card__face--front">
+								<img src={item.src} alt={item.name} className="portfolio__item" />
+							</div>
+							<div className="card__face card__face--back">
+								<p className="card__item__stack">{item.stack}</p>
+								{item.link ? <a href={item.link}>See live version</a> : null}
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	);
 }
-
-export default Portfolio;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Header } from './components/header/Header';
 import { Skills } from './components/skills/Skills';
-import { Portfolio } from './components/portfolio/Portfolio';
-import { Contact } from './components/contact/Contact';
+import { Portfolio } from './components/portfolio/portfolio';
+import { Contact } from './components/contact/contact';
 
 import './App.scss';
 import { Helmet } from 'react-helmet';

@@ -7,6 +7,7 @@ html {
 	body {
 		min-height: 100%;
 		height: 100%;
+		width: 100%;
 		position: relative;
 		font-size: $font-size;
 		color: $text-color;
@@ -28,37 +29,53 @@ p {
 
 h1 {
 	color: $primary;
-	font-size: 64px;
-	text-shadow: 5px 5px $accent, 10px 10px $tertiary;
+	font-size: 84px;
+	text-shadow: 5px 5px $primary--dark;
+	text-align: center;
+	z-index: 2;
+	margin: 0;
 }
 
 h2 {
 	color: $primary;
-	font-size: 52px;
-	text-shadow: 5px 5px $accent, 10px 10px $tertiary;
+	font-size: 64px;
+	text-shadow: 2px 2px $primary--dark;
+	text-align: center;
 }
 
 h3 {
-	color: $accent;
-	font-size: 42px;
-	text-shadow: 2px 2px $tertiary;
+	color: $accent--medium;
+	font-size: 54px;
+	text-shadow: 3px 3px $accent--dark;
+	text-align: center;
+	z-index: 2;
 }
 
 header {
+	background: linear-gradient(#ffbdd5, #33fff0, #fff);
 	width: 100%;
-	min-height: 500px;
+	height: 80vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	:after {
+	&:after {
 		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 80vh;
+		background-image: url(tree.png);
+		background-position: bottom center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		opacity: 0.3;
 	}
 }
 
 a {
 	color: $accent;
-	text-shadow: 2px 2px $tertiary;
 	text-decoration: none;
 	text-transform: uppercase;
 	font-weight: bold;
@@ -78,23 +95,32 @@ a {
 }
 
 .skills {
+	&:before {
+		content: '';
+		position: absolute;
+		display: block;
+		height: 150px;
+		width: 100%;
+		margin-top: -149px;
+		background: url(wave-divider.png);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: left bottom;
+	}
 	&__container {
 		padding: 50px 100px;
 	}
 	&__grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(20%, auto));
+		grid-template-columns: repeat(auto-fill, minmax(300px, auto));
 		grid-auto-flow: dense;
-		grid-gap: 20px;
+		grid-gap: 20px 50px;
+		justify-content: center;
 	}
 	&__item {
 		font-weight: bold;
 		color: $accent;
-		text-shadow: 2px 2px $tertiary;
 		font-size: 2em;
-		text-align: center;
-	}
-	h2 {
 		text-align: center;
 	}
 }
@@ -105,19 +131,23 @@ a {
 	}
 	&__categories {
 		display: flex;
-		justify-content: space-between;
+		justify-content: center;
 		padding: 50px 100px;
+		flex-wrap: wrap;
 		button {
 			background-color: white;
 			border: none;
 			color: $accent;
-			font-size: 24px;
-			text-shadow: 2px 2px $tertiary;
+			font-size: 32px;
 			font-weight: bold;
+			cursor: pointer;
+			flex-basis: 300px;
+			margin-bottom: 20px;
 			&:active,
 			&:focus {
 				color: $primary;
 				font-weight: bolder;
+				outline: none;
 			}
 		}
 	}
@@ -180,7 +210,6 @@ a {
 		&__stack {
 			font-weight: bold;
 			color: $primary;
-			text-shadow: 2px 2px $accent;
 			font-size: 1.5em;
 		}
 	}
@@ -193,5 +222,10 @@ a {
 	&__grid {
 		display: flex;
 		justify-content: space-between;
+		flex-wrap: wrap;
+		a {
+			flex-basis: 300px;
+			text-align: center;
+		}
 	}
 }

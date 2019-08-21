@@ -5,7 +5,7 @@ const thingsIDo = ['Web Design', 'UX for Web Apps', 'Digital Marketing', 'Techni
 
 export function Skills() {
 	return (
-		<div>
+		<div className="skills">
 			<div className="skills__container">
 				<h2>I make things with </h2>
 				<div className="skills__grid">

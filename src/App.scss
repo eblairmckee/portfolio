@@ -28,9 +28,9 @@ p {
 }
 
 h1 {
-	color: $primary;
-	font-size: 84px;
-	text-shadow: 5px 5px $primary--dark;
+	color: white;
+	font-size: 92px;
+	text-shadow: 5px 5px rgba(255, 255, 255, 0.5);
 	text-align: center;
 	z-index: 2;
 	margin: 0;
@@ -44,15 +44,16 @@ h2 {
 }
 
 h3 {
-	color: $accent--medium;
+	color: white;
 	font-size: 54px;
-	text-shadow: 3px 3px $accent--dark;
+	text-shadow: 3px 3px rgba(255, 255, 255, 0.5);
 	text-align: center;
 	z-index: 2;
+	margin: 0;
 }
 
 header {
-	background: linear-gradient(#ffbdd5, #33fff0, #fff);
+	background: linear-gradient($accent--dark, $accent--medium, $accent);
 	width: 100%;
 	height: 80vh;
 	display: flex;
@@ -67,10 +68,17 @@ header {
 		width: 100%;
 		height: 80vh;
 		background-image: url(tree.png);
-		background-position: bottom center;
+		background-position: top center;
 		background-repeat: no-repeat;
 		background-size: cover;
-		opacity: 0.3;
+	}
+}
+
+.header {
+	&__wrapper {
+		z-index: 2;
+		padding: 0px 100px;
+		max-width: 1072px;
 	}
 }
 
@@ -99,13 +107,13 @@ a {
 		content: '';
 		position: absolute;
 		display: block;
-		height: 150px;
+		height: 200px;
 		width: 100%;
-		margin-top: -149px;
+		margin-top: -199px;
 		background: url(wave-divider.png);
 		background-size: cover;
 		background-repeat: no-repeat;
-		background-position: left bottom;
+		background-position: center top;
 	}
 	&__container {
 		padding: 50px 100px;
@@ -204,6 +212,7 @@ a {
 			flex-direction: column;
 			justify-content: center;
 			align-content: center;
+			padding: 0px 50px;
 		}
 	}
 	&__item {
@@ -211,6 +220,10 @@ a {
 			font-weight: bold;
 			color: $primary;
 			font-size: 1.5em;
+		}
+		&__descr {
+			color: $accent--dark;
+			font-size: 1.2em;
 		}
 	}
 }

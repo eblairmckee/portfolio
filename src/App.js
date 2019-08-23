@@ -6,8 +6,9 @@ import { Contact } from './components/contact/contact';
 
 import './App.scss';
 import { Helmet } from 'react-helmet';
+import { withTheme } from 'styled-components';
 
-export default function App() {
+function App(props) {
 	return (
 		<div className="App">
 			<Helmet>
@@ -16,10 +17,12 @@ export default function App() {
 				<link rel="canonical" href="https://blairmckee.com/" />
 				<meta name="description" content="Hi, I'm Blair! I'm a front end developer, designer, and digital marketer. Check out my work. " />
 			</Helmet>
-			<Header />
+			<Header theme={props.theme} />
 			<Skills />
 			<Portfolio />
 			<Contact />
 		</div>
 	);
 }
+
+export default withTheme(App);

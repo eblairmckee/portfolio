@@ -100,7 +100,7 @@ header {
 		z-index: 2;
 		max-width: 1072px;
 		margin-bottom: 300px;
-		padding: 0 100px;
+		padding: 100px 100px;
 	}
 }
 
@@ -126,20 +126,22 @@ a {
 }
 
 .skills {
-	// &:before {
-	// 	content: '';
-	// 	position: absolute;
-	// 	display: block;
-	// 	height: 200px;
-	// 	width: 100%;
-	// 	margin-top: -199px;
-	// 	background: url(wave-divider.png);
-	// 	background-size: cover;
-	// 	background-repeat: no-repeat;
-	// 	background-position: center top;
-	// }
+	&:before {
+		content: '';
+		position: absolute;
+		display: block;
+		height: 200px;
+		width: 100%;
+		margin-top: -99px;
+		background: url(grid.png);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center top;
+	}
 	&__container {
-		padding: 50px 100px;
+		padding: 100px;
+		max-width: 1072px;
+		margin: auto;
 	}
 	&__grid {
 		display: grid;
@@ -253,13 +255,15 @@ a {
 .contact {
 	&__container {
 		padding: 0 100px 100px 100px;
+		max-width: 1072px;
+		margin: auto;
 	}
 	&__grid {
 		display: flex;
 		justify-content: space-between;
 		flex-wrap: wrap;
 		a {
-			flex-basis: 300px;
+			flex-basis: 200px;
 			text-align: center;
 		}
 	}

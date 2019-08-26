@@ -27,6 +27,35 @@ p {
 	font-size: $font-size;
 }
 
+.background--inverse {
+	background: #40004d;
+	margin: 200px 0;
+	&:before {
+		content: '';
+		position: absolute;
+		display: block;
+		height: 300px;
+		width: 100%;
+		margin-top: -299px;
+		background: url(wave.svg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center top;
+	}
+	&:after {
+		content: '';
+		position: absolute;
+		display: block;
+		height: 300px;
+		width: 100%;
+		background: url(wave.svg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center top;
+		transform: rotate(180deg);
+	}
+}
+
 h1 {
 	color: white;
 	font-size: 92px;
@@ -139,7 +168,7 @@ a {
 		background-position: center top;
 	}
 	&__container {
-		padding: 100px;
+		padding: 50px;
 		max-width: 1072px;
 		margin: auto;
 	}
@@ -155,6 +184,15 @@ a {
 		color: $accent;
 		font-size: 2em;
 		text-align: center;
+		text-shadow: 1px 1px $primary--dark;
+		&--inverse {
+			font-weight: bold;
+			color: $accent;
+			font-size: 2em;
+			text-align: center;
+			color: $inverse;
+			text-shadow: 1px 1px $primary;
+		}
 	}
 }
 

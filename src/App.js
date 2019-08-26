@@ -3,6 +3,7 @@ import { Header } from './components/header/Header';
 import { Skills } from './components/skills/Skills';
 import { Portfolio } from './components/portfolio/portfolio';
 import { Contact } from './components/contact/contact';
+import { About } from './components/about/About';
 
 import './App.scss';
 import { Helmet } from 'react-helmet';
@@ -20,6 +21,7 @@ function App(props) {
 			<Header theme={props.theme} />
 			<Skills />
 			<Portfolio />
+			<About />
 			<Contact />
 		</div>
 	);

@@ -236,8 +236,12 @@ a {
 	&__item {
 		width: 400px;
 		height: 400px;
-		perspective: 800px;
-		border-radius: 20px;
+        border-radius: 20px;
+        &:hover {
+            .card {
+                transform: rotateY(180deg);
+            }
+        }
 	}
 }
 
@@ -247,9 +251,6 @@ a {
 	position: relative;
 	transition: transform 0.5s;
 	transform-style: preserve-3d;
-	&:hover {
-		transform: rotateY(180deg);
-	}
 	&__face {
 		position: absolute;
 		height: 100%;

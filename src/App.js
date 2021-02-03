@@ -16,7 +16,10 @@ function App(props) {
 				<meta charSet="utf-8" />
 				<title>Blair McKee's Portfolio</title>
 				<link rel="canonical" href="https://blairmckee.com/" />
-				<meta name="description" content="Hi, I'm Blair! I'm a front end developer, designer, and digital marketer. Check out my work. " />
+				<meta
+					name="description"
+					content="Hi, I'm Blair! I'm a UI Engineer & Designer. Check out my work. "
+				/>
 			</Helmet>
 			<Header theme={props.theme} />
 			<Skills />

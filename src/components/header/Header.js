@@ -1,7 +1,13 @@
 import React from 'react';
 import { useTheme } from '../../ThemeContext';
 import styled from 'styled-components';
-import { buttonBackgroundColor, buttonTextColor, headerBackgroundColor, headingColor, headingShadow } from '../../theme';
+import {
+	buttonBackgroundColor,
+	buttonTextColor,
+	headerBackgroundColor,
+	headingColor,
+	headingShadow,
+} from '../../theme';
 
 export function Header(props) {
 	const themeToggle = useTheme();
@@ -34,11 +40,19 @@ export function Header(props) {
 	return (
 		<Header>
 			<Button onClick={() => themeToggle.toggle()}>
-				<img className="mode__toggle" alt="Dark mode toggle" src={props.theme.mode === 'dark' ? '../../../sun.png' : '../../../moon.png'} />
+				<img
+					className="mode__toggle"
+					alt="Dark mode toggle"
+					src={
+						props.theme.mode === 'dark'
+							? '../../../sun.png'
+							: '../../../moon.png'
+					}
+				/>
 			</Button>
 			<div className="header__wrapper">
 				<Heading>Hi, I'm Blair.</Heading>
-				<Subheading>I'm a front end developer & designer</Subheading>
+				<Subheading>I'm a UI Engineer & Designer</Subheading>
 			</div>
 		</Header>
 	);

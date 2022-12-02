@@ -3,6 +3,7 @@
   "rules": {
     "no-console": 1,
     "indent": ["warn", 2],
+    "no-use-before-define": 1,
     "prettier/prettier": [
       "warn",
       {

@@ -1,0 +1,16 @@
+{
+  "extends": ["wesbos/typescript"],
+  "rules": {
+    "no-console": 1,
+    "indent": ["warn", 2],
+    "prettier/prettier": [
+      "warn",
+      {
+        "trailingComma": "es5",
+        "singleQuote": true,
+        "printWidth": 120,
+        "tabWidth": 2
+      }
+    ]
+  }
+}

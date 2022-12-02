@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { styled } from '@linaria/react';
 import {css} from '@linaria/core';
+import Draggable from 'react-draggable';
 import { Navbar } from './Navbar';
-import { colors } from '../styles/theme';
+import { colors, roundedBorder as roundedBorderStyle } from '../styles/theme';
 
 // TODO: decide on sizing.. based on children? or random
 const Wrapper = styled.div`
@@ -11,27 +12,73 @@ const Wrapper = styled.div`
   background-color: ${colors.background};
   height: 200px;
   width: 200px;
+  overflow: hidden;
+  position: absolute;
 `;
 
-const roundedBorderStyle = css`
-  border-top-right-radius: 16px;
-  border-top-left-radius: 16px;
-`
+const roundedBorderClass = css`
+  border-radius: ${roundedBorderStyle}px;
+`;
+
+const Content = styled.div`
+  padding: 20px;
+`;
 
 type WindowProps = {
   roundedBorder?: boolean;
   title: string;
   children: React.ReactNode;
-  // draggable?: boolean;
-  // minWidth?: number;
-  // minHeight?: number;
+  /** When true navbar gets active treatment */
+  isDragging?: boolean;
+  /** @default min-content */
+  height?: number | string;
+  /** @default min-content */
+  width?: number | string;
+  top?: number | string;
+  left?: number | string;
+  right?: number | string;
+  bottom?: number | string;
 }
 
-// TODO: customize scrollbar
-export const Window = ({children, title, roundedBorder}: WindowProps) =>  (
-    <Wrapper className={roundedBorder ? roundedBorderStyle : undefined}>
-      <Navbar title={title} />
-      {children}
-    </Wrapper>
+export const Window = ({
+  children,
+  title,
+  roundedBorder,
+  height = 'min-content',
+  width = 'min-content',
+  top,
+  right,
+  bottom,
+  left,
+  ...props
+}: WindowProps) => {
+  const [isDragging, setIsDragging] = useState(false);
+
+  const onStartDrag = useCallback(() => {
+    setIsDragging(true);
+  }, []);
+  const onStopDrag = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
+  return (
+    <Draggable onStart={onStartDrag} onStop={onStopDrag}>
+      <Wrapper
+        className={roundedBorder ? roundedBorderClass : undefined}
+        style={{
+          height,
+          width,
+          top,
+          right,
+          bottom,
+          left,
+        }}
+        {...props}
+      >
+        <Navbar title={title} isActive={isDragging} />
+        <Content style={{ padding: '10px 10px 10px 20px' }}>{children}</Content>
+      </Wrapper>
+    </Draggable>
   );
+};
 

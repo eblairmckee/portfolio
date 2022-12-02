@@ -20,7 +20,6 @@ Then start the app
 yarn start
 ```
 
-# TODO
-
-- install react helmet
--
+<!-- TODO install react helmet -->
+<!-- TODO: Bio -->
+<!-- TODO: what's the secondary content? what goes in the other windows?  -->

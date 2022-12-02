@@ -4,3 +4,5 @@ export const colors = {
 };
 
 export const navbarHeight = 36
+
+export const roundedBorder = 16;

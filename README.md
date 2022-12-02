@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Waddup?
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [react-app-rewired](https://github.com/timarney/react-app-rewired) and my [Typescript Linaria template](https://github.com/eblairmckee/ts-linaria-template).
 
@@ -19,7 +19,3 @@ Then start the app
 ```
 yarn start
 ```
-
-<!-- TODO install react helmet -->
-<!-- TODO: Bio -->
-<!-- TODO: what's the secondary content? what goes in the other windows?  -->

@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { styled } from '@linaria/react';
-import {css} from '@linaria/core';
+import { css } from '@linaria/core';
 import Draggable from 'react-draggable';
 import { Navbar } from './Navbar';
 import { colors, roundedBorder as roundedBorderStyle } from '../styles/theme';
@@ -38,7 +38,7 @@ type WindowProps = {
   left?: number | string;
   right?: number | string;
   bottom?: number | string;
-}
+};
 
 export const Window = ({
   children,
@@ -81,4 +81,3 @@ export const Window = ({
     </Draggable>
   );
 };
-

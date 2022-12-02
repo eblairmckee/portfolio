@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from '@linaria/react';
 import { css, cx } from '@linaria/core';
 import { colors, navbarHeight } from '../styles/theme';
-import {Link} from './Link';
+import { Link } from './Link';
 
 export type NavItemLinkProps = {
   name: string;
@@ -11,10 +11,10 @@ export type NavItemLinkProps = {
 
 export type NavbarProps = {
   links?: NavItemLinkProps[];
-  title?: string; 
+  title?: string;
   /** Surfaces a special treatment when true */
   isActive?: boolean;
-}
+};
 
 const Wrapper = styled.div`
   background-color: ${colors.background};
@@ -35,7 +35,7 @@ const Heading = styled.h3`
 
 const centerTitleStyles = css`
   justify-content: center;
-`
+`;
 
 // TODO: fix this so the background position is right
 const activeStyles = css`
@@ -45,7 +45,7 @@ const activeStyles = css`
 
 // TODO: draggable header styles
 // TODO: show current time
-export const Navbar: React.FC<NavbarProps> = ({links, title, isActive}) => {
+export const Navbar: React.FC<NavbarProps> = ({ links, title, isActive }) => {
   const renderLinks = () =>
     links?.map(({ name, to }, index) => (
       <Link href={to} rel="noreferrer">
@@ -59,4 +59,3 @@ export const Navbar: React.FC<NavbarProps> = ({links, title, isActive}) => {
     </Wrapper>
   );
 };
-

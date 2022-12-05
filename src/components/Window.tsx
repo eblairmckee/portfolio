@@ -1,9 +1,10 @@
 import React, { useCallback, useState } from 'react';
 import { styled } from '@linaria/react';
-import { css } from '@linaria/core';
+import { css, cx } from '@linaria/core';
 import Draggable from 'react-draggable';
 import { Navbar } from './Navbar';
 import { colors, roundedBorder as roundedBorderStyle } from '../styles/theme';
+import { scrollbarStyles } from '../styles/scrollbar';
 
 // TODO: decide on sizing.. based on children? or random
 const Wrapper = styled.div`
@@ -12,7 +13,8 @@ const Wrapper = styled.div`
   background-color: ${colors.background};
   height: 200px;
   width: 200px;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
   position: absolute;
 `;
 
@@ -38,6 +40,7 @@ type WindowProps = {
   left?: number | string;
   right?: number | string;
   bottom?: number | string;
+  maxHeight?: number | string;
 };
 
 export const Window = ({
@@ -46,13 +49,10 @@ export const Window = ({
   roundedBorder,
   height = 'min-content',
   width = 'min-content',
-  top,
-  right,
-  bottom,
-  left,
-  ...props
+  isDragging: isDraggingProp = false,
+  ...styleProps
 }: WindowProps) => {
-  const [isDragging, setIsDragging] = useState(false);
+  const [isDragging, setIsDragging] = useState(isDraggingProp);
 
   const onStartDrag = useCallback(() => {
     setIsDragging(true);
@@ -64,16 +64,12 @@ export const Window = ({
   return (
     <Draggable onStart={onStartDrag} onStop={onStopDrag}>
       <Wrapper
-        className={roundedBorder ? roundedBorderClass : undefined}
+        className={cx(roundedBorder ? roundedBorderClass : undefined, scrollbarStyles)}
         style={{
           height,
           width,
-          top,
-          right,
-          bottom,
-          left,
+          ...styleProps,
         }}
-        {...props}
       >
         <Navbar title={title} isActive={isDragging} />
         <Content style={{ padding: '10px 10px 10px 20px' }}>{children}</Content>

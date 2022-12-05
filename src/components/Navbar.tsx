@@ -25,12 +25,16 @@ const Wrapper = styled.div`
   padding: 0 40px;
   border-bottom: 2px solid ${colors.foreground};
   cursor: pointer;
+  min-width: 0;
 `;
 
 const Heading = styled.h3`
   font-size: 24px;
   background: ${colors.background}
   padding: 0 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const centerTitleStyles = css`

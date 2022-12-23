@@ -7,8 +7,20 @@
   src: local('sysfont'), url('./fonts/sysfont.woff') format('woff');
 }
 
-body {
+* {
+  box-sizing: border-box;
+}
+
+html, body {
   margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+body {
   font-family: 'sysfont', sans-serif, -apple-system, BlinkMacSystemFont;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -56,6 +56,7 @@ export const Navbar: React.FC<NavbarProps> = ({ links, title, isActive }) => {
         <Heading key={index}>{name}</Heading>
       </Link>
     ));
+
   return (
     <Wrapper className={cx(!links ? centerTitleStyles : undefined, isActive ? activeStyles : undefined)}>
       {title ? <Heading>{title}</Heading> : null}

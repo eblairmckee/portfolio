@@ -4,9 +4,9 @@ import { css, cx } from '@linaria/core';
 import Draggable from 'react-draggable';
 import { Navbar } from './Navbar';
 import { colors, roundedBorder as roundedBorderStyle } from '../styles/theme';
-import { scrollbarStyles } from '../styles/scrollbar';
+// TODO: figure out why this doesn't work
+// import { scrollbarStyles } from '../styles/scrollbar';
 
-// TODO: decide on sizing.. based on children? or random
 const Wrapper = styled.div`
   border: 3px solid ${colors.foreground};
   box-shadow: 2px 2px 0 0px ${colors.foreground};
@@ -24,9 +24,11 @@ const roundedBorderClass = css`
 
 const Content = styled.div`
   padding: 20px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 `;
 
-type WindowProps = {
+export type WindowProps = {
   roundedBorder?: boolean;
   title: string;
   children: React.ReactNode;
@@ -41,8 +43,11 @@ type WindowProps = {
   right?: number | string;
   bottom?: number | string;
   maxHeight?: number | string;
+  /** @default  */
+  zIndex?: number;
 };
 
+// TODO: scroll doesn't work on mobile
 export const Window = ({
   children,
   title,
@@ -64,7 +69,7 @@ export const Window = ({
   return (
     <Draggable onStart={onStartDrag} onStop={onStopDrag}>
       <Wrapper
-        className={cx(roundedBorder ? roundedBorderClass : undefined, scrollbarStyles)}
+        className={cx(roundedBorder ? roundedBorderClass : undefined)}
         style={{
           height,
           width,

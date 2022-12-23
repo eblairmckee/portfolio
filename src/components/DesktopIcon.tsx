@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 
 const Label = styled.div`
   background: ${colors.background};
-  padding: 5px;
+  padding: 2px;
   text-align: center;
 `;
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Window, WindowProps } from '../Window';
 
-export const Projects = (props: Pick<WindowProps, 'top' | 'left' | 'right' | 'bottom'>) => (
-  <Window roundedBorder title="Side Projects" width="min(50vw, 300px)" {...props}>
+export const Projects = (props: Omit<WindowProps, 'title' | 'children'>) => (
+  <Window roundedBorder title="Side Projects" width="70vw" maxWidth="300px" {...props}>
     <p>
       On the side, I enjoy building mobile and web apps. Lately, I've been deep diving &nbsp;
       <a href="https://docs.swmansion.com/react-native-reanimated/" target="_blank" rel="noreferrer">

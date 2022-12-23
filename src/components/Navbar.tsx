@@ -29,12 +29,15 @@ const Wrapper = styled.div`
 `;
 
 const Heading = styled.h3`
-  font-size: 24px;
+  font-size: 20px;
   background: ${colors.background}
   padding: 0 5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  @media(max-width: 600px) {
+    font-size: 14px;
+  }
 `;
 
 const centerTitleStyles = css`

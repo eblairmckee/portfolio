@@ -1,8 +1,8 @@
 import React from 'react';
 import { Window, WindowProps } from '../Window';
 
-export const Bio = (props: Pick<WindowProps, 'top' | 'left' | 'right' | 'bottom'>) => (
-  <Window title="Welcome" roundedBorder width="min(500px, 80vw)" height="min(70vh, 500px)" {...props}>
+export const Bio = (props: Omit<WindowProps, 'title' | 'children'>) => (
+  <Window title="Welcome" width="80vw" maxWidth="500px" height="min(70vh, 500px)" {...props}>
     <h1>👋🏼 Hey, I'm Blair!</h1>
     <h2>I'm a frontend developer from Chicago</h2>
     <h3>I've been building things for the web for 5 years</h3>

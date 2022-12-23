@@ -36,6 +36,21 @@ h5 {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media(max-width: 600px) {
+  h1{
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  h3 {
+    font-size: 14px;
+  }
+  h4, p, li {
+    font-size: 12px;
+  }
+}
+
 code {
   font-family: monospace;
 }

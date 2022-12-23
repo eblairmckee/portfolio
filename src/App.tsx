@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { styled } from '@linaria/react';
 import { Helmet } from 'react-helmet';
 
@@ -44,9 +44,27 @@ const AppWrapper = styled.div`
   padding: 5px;
 `;
 
-// TODO: stagger window z index based on last touched
-
 function App() {
+  const [activeWindow, setActiveWindow] = useState<number | undefined>(1);
+  const lastActiveWindow = useRef<number | undefined>(2);
+
+  const windowDragHandler = useCallback(
+    (idx?: number) => {
+      lastActiveWindow.current = activeWindow;
+      setActiveWindow(idx);
+    },
+    [activeWindow]
+  );
+
+  const getZIndex = useCallback(
+    (index: number) => {
+      if (index === activeWindow) return 3;
+      if (index === lastActiveWindow.current) return 2;
+      return 1;
+    },
+    [activeWindow]
+  );
+
   const bigWindowOffset = 50;
   const bigWindowTopOffset = navbarHeight + bigWindowOffset;
   const desktopIconXOffset = 20;
@@ -81,9 +99,9 @@ function App() {
           top={desktopIconYOffset * 3.5}
           right={desktopIconXOffset}
         />
-        <Projects bottom="20vh" right="max(20vw, 50px)" />
-        <Stack bottom="5vh" right="10vw" />
-        <Bio top={bigWindowTopOffset} left="10vw" />
+        <Projects bottom="5vh" right="max(20vw, 50px)" onDrag={() => windowDragHandler(3)} zIndex={getZIndex(3)} />
+        <Bio top={bigWindowTopOffset} left="10vw" onDrag={() => windowDragHandler(2)} zIndex={getZIndex(2)} />
+        <Stack bottom="10vh" right="10vw" onDrag={() => windowDragHandler(1)} zIndex={getZIndex(1)} />
       </CheckeredBackground>
     </AppWrapper>
   );

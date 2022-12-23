@@ -43,8 +43,10 @@ export type WindowProps = {
   right?: number | string;
   bottom?: number | string;
   maxHeight?: number | string;
+  maxWidth?: number | string;
   /** @default  */
   zIndex?: number;
+  onDrag?: () => void;
 };
 
 // TODO: scroll doesn't work on mobile
@@ -55,13 +57,15 @@ export const Window = ({
   height = 'min-content',
   width = 'min-content',
   isDragging: isDraggingProp = false,
+  onDrag,
   ...styleProps
 }: WindowProps) => {
   const [isDragging, setIsDragging] = useState(isDraggingProp);
 
   const onStartDrag = useCallback(() => {
     setIsDragging(true);
-  }, []);
+    onDrag?.();
+  }, [onDrag]);
   const onStopDrag = useCallback(() => {
     setIsDragging(false);
   }, []);

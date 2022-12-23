@@ -1,7 +1,7 @@
 import React from 'react';
 import { Window, WindowProps } from '../Window';
 
-export const Stack = (props: Pick<WindowProps, 'top' | 'left' | 'right' | 'bottom'>) => (
+export const Stack = (props: Omit<WindowProps, 'title' | 'children'>) => (
   <Window roundedBorder title="My Stack" width="min(50vw, 300px)" {...props}>
     <ul>
       <li>Typescript</li>

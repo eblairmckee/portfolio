@@ -79,7 +79,15 @@ export const Navbar: React.FC<NavbarProps> = ({ links, title, isActive, children
 
   const renderedClock = useMemo(() => {
     const date = new Date();
-    return <Heading>{date.toDateString()}</Heading>;
+    const hours = date.getHours();
+    const convertedHours = hours > 12 ? hours - 12 : hours;
+    const isPM = hours > 12;
+    const minutes = date.getMinutes();
+    return (
+      <Heading>
+        {date.toDateString()} {convertedHours}:{minutes} {isPM ? 'PM' : 'AM'}
+      </Heading>
+    );
   }, []);
 
   return (

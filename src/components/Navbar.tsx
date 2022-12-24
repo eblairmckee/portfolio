@@ -42,7 +42,7 @@ const Heading = styled.h3`
   overflow: hidden;
   text-overflow: ellipsis;
   @media(max-width: 600px) {
-    font-size: 14px;
+    font-size: 12px;
   }
 `;
 
@@ -61,6 +61,9 @@ const linkWrapperStyles = css`
 const linkStyles = css`
   display: flex;
   gap: 25px;
+  @media (max-width: 600px) {
+    gap: 5px;
+  }
 `;
 
 export const Navbar: React.FC<NavbarProps> = ({ links, title, isActive, children }) => {

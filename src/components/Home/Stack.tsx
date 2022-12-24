@@ -33,7 +33,7 @@ export const Stack = (props: Omit<WindowProps, 'title' | 'children'>) => {
   return (
     <Window
       title="My Stack"
-      width="50vw"
+      width="80vw"
       maxWidth="420px"
       navigationNode={
         <div className={navigationStyles}>

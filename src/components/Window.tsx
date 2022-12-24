@@ -13,8 +13,7 @@ const Wrapper = styled.div`
   background-color: ${colors.background};
   height: 200px;
   width: 200px;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: auto;
   position: absolute;
 `;
 
@@ -49,6 +48,8 @@ export type WindowProps = {
   isActive?: boolean;
   /** Callback fired when window attains focus */
   onFocus?: () => void;
+  /** Renders content within the window, but outside of the content */
+  navigationNode?: React.ReactNode;
 };
 
 // TODO: scroll doesn't work on mobile
@@ -61,6 +62,7 @@ export const Window = ({
   onDrag,
   isActive,
   onFocus,
+  navigationNode,
   ...styleProps
 }: WindowProps) => {
   const onStartDrag = useCallback(() => {
@@ -82,6 +84,7 @@ export const Window = ({
         }}
       >
         <Navbar title={title} isActive={isActive} />
+        {navigationNode || null}
         <Content style={{ padding: '10px 10px 10px 20px' }} onClick={handleContentClick}>
           {children}
         </Content>

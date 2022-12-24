@@ -16,6 +16,7 @@ export type NavbarProps = {
   title?: string;
   /** Surfaces a special treatment when true */
   isActive?: boolean;
+  children?: React.ReactNode;
 };
 
 const Wrapper = styled.div`
@@ -62,7 +63,7 @@ const linkStyles = css`
   gap: 25px;
 `;
 
-export const Navbar: React.FC<NavbarProps> = ({ links, title, isActive }) => {
+export const Navbar: React.FC<NavbarProps> = ({ links, title, isActive, children }) => {
   const renderedLinks = useMemo(
     () => (
       <div className={linkStyles}>
@@ -90,6 +91,7 @@ export const Navbar: React.FC<NavbarProps> = ({ links, title, isActive }) => {
           {links ? renderedClock : null}
         </div>
       ) : null}
+      {children}
     </Wrapper>
   );
 };

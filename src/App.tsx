@@ -78,27 +78,29 @@ function App() {
       <CheckeredBackground>
         <Navbar links={navItems} />
         {/* Draggable items lower in the DOM will overlay previous ones */}
-        <DesktopIcon
-          name="folder"
-          to="https://twitter.com/blairwitch_eth"
-          label="Twitter"
-          top={50}
-          right={desktopIconXOffset}
-        />
-        <DesktopIcon
-          name="save"
-          to="https://github.com/eblairmckee"
-          label="Github"
-          top={desktopIconYOffset * 2}
-          right={desktopIconXOffset}
-        />
-        <DesktopIcon
-          name="garbage"
-          to="https://www.linkedin.com/in/eblairmckee/"
-          label="Linkedin"
-          top={desktopIconYOffset * 3.5}
-          right={desktopIconXOffset}
-        />
+        <ul>
+          <DesktopIcon
+            name="folder"
+            to="https://twitter.com/blairwitch_eth"
+            label="Twitter"
+            top={50}
+            right={desktopIconXOffset}
+          />
+          <DesktopIcon
+            name="save"
+            to="https://github.com/eblairmckee"
+            label="Github"
+            top={desktopIconYOffset * 2}
+            right={desktopIconXOffset}
+          />
+          <DesktopIcon
+            name="garbage"
+            to="https://www.linkedin.com/in/eblairmckee/"
+            label="Linkedin"
+            top={desktopIconYOffset * 3.5}
+            right={desktopIconXOffset}
+          />
+        </ul>
         <Projects
           bottom="5vh"
           right="max(10vw, 50px)"

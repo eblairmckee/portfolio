@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { styled } from '@linaria/react';
 import { css, cx } from '@linaria/core';
 import Draggable from 'react-draggable';
-import { Navbar } from './Navbar';
+import { Navbar, navbarClassName } from './Navbar';
 import { colors, roundedBorder as roundedBorderStyle } from '../styles/theme';
 // TODO: figure out why this doesn't work
 // import { scrollbarStyles } from '../styles/scrollbar';
@@ -32,8 +32,6 @@ export type WindowProps = {
   roundedBorder?: boolean;
   title: string;
   children: React.ReactNode;
-  /** When true navbar gets active treatment */
-  isDragging?: boolean;
   /** @default min-content */
   height?: number | string;
   /** @default min-content */
@@ -47,6 +45,8 @@ export type WindowProps = {
   /** @default  */
   zIndex?: number;
   onDrag?: () => void;
+  /** When Window is actively being dragged, has focus, or was the last window to have focus  */
+  isActive?: boolean;
 };
 
 // TODO: scroll doesn't work on mobile
@@ -56,22 +56,16 @@ export const Window = ({
   roundedBorder,
   height = 'min-content',
   width = 'min-content',
-  isDragging: isDraggingProp = false,
   onDrag,
+  isActive,
   ...styleProps
 }: WindowProps) => {
-  const [isDragging, setIsDragging] = useState(isDraggingProp);
-
   const onStartDrag = useCallback(() => {
-    setIsDragging(true);
     onDrag?.();
   }, [onDrag]);
-  const onStopDrag = useCallback(() => {
-    setIsDragging(false);
-  }, []);
 
   return (
-    <Draggable onStart={onStartDrag} onStop={onStopDrag}>
+    <Draggable onStart={onStartDrag} handle={`.${navbarClassName}`}>
       <Wrapper
         className={cx(roundedBorder ? roundedBorderClass : undefined)}
         style={{
@@ -80,7 +74,7 @@ export const Window = ({
           ...styleProps,
         }}
       >
-        <Navbar title={title} isActive={isDragging} />
+        <Navbar title={title} isActive={isActive} />
         <Content style={{ padding: '10px 10px 10px 20px' }}>{children}</Content>
       </Wrapper>
     </Draggable>

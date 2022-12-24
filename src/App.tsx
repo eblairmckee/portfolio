@@ -99,9 +99,27 @@ function App() {
           top={desktopIconYOffset * 3.5}
           right={desktopIconXOffset}
         />
-        <Projects bottom="5vh" right="max(20vw, 50px)" onDrag={() => windowDragHandler(3)} zIndex={getZIndex(3)} />
-        <Bio top={bigWindowTopOffset} left="10vw" onDrag={() => windowDragHandler(2)} zIndex={getZIndex(2)} />
-        <Stack bottom="10vh" right="10vw" onDrag={() => windowDragHandler(1)} zIndex={getZIndex(1)} />
+        <Projects
+          bottom="5vh"
+          right="max(20vw, 50px)"
+          onDrag={() => windowDragHandler(3)}
+          zIndex={getZIndex(3)}
+          isActive={activeWindow === 3}
+        />
+        <Bio
+          top={bigWindowTopOffset}
+          left="10vw"
+          onDrag={() => windowDragHandler(2)}
+          zIndex={getZIndex(2)}
+          isActive={activeWindow === 2}
+        />
+        <Stack
+          bottom="10vh"
+          right="10vw"
+          onDrag={() => windowDragHandler(1)}
+          zIndex={getZIndex(1)}
+          isActive={activeWindow === 1}
+        />
       </CheckeredBackground>
     </AppWrapper>
   );

@@ -4,6 +4,8 @@ import { css, cx } from '@linaria/core';
 import { colors, navbarHeight } from '../styles/theme';
 import { Link } from './Link';
 
+export const navbarClassName = 'navbar';
+
 export type NavItemLinkProps = {
   name: string;
   to: string;
@@ -26,6 +28,9 @@ const Wrapper = styled.div`
   border-bottom: 2px solid ${colors.foreground};
   cursor: pointer;
   min-width: 0;
+  position: sticky;
+  top: 0;
+  left: 0;
 `;
 
 const Heading = styled.h3`
@@ -61,7 +66,9 @@ export const Navbar: React.FC<NavbarProps> = ({ links, title, isActive }) => {
     ));
 
   return (
-    <Wrapper className={cx(!links ? centerTitleStyles : undefined, isActive ? activeStyles : undefined)}>
+    <Wrapper
+      className={cx(navbarClassName, !links ? centerTitleStyles : undefined, isActive ? activeStyles : undefined)}
+    >
       {title ? <Heading>{title}</Heading> : null}
       {links ? renderLinks() : null}
     </Wrapper>

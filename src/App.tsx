@@ -7,7 +7,7 @@ import { Bio, Projects, Stack } from './components/Home';
 import { colors, navbarHeight, roundedBorder } from './styles/theme';
 import { DesktopIcon } from './components/DesktopIcon';
 
-// TODO: replace with social media links
+// TODO: replace with something else
 const navItems: NavItemLinkProps[] = [
   {
     name: 'File',
@@ -101,24 +101,27 @@ function App() {
         />
         <Projects
           bottom="5vh"
-          right="max(20vw, 50px)"
+          right="max(10vw, 50px)"
           onDrag={() => windowDragHandler(3)}
           zIndex={getZIndex(3)}
           isActive={activeWindow === 3}
+          onFocus={() => setActiveWindow(3)}
+        />
+        <Stack
+          top="20vh"
+          right="20vw"
+          onDrag={() => windowDragHandler(2)}
+          zIndex={getZIndex(2)}
+          isActive={activeWindow === 2}
+          onFocus={() => setActiveWindow(2)}
         />
         <Bio
           top={bigWindowTopOffset}
           left="10vw"
-          onDrag={() => windowDragHandler(2)}
-          zIndex={getZIndex(2)}
-          isActive={activeWindow === 2}
-        />
-        <Stack
-          bottom="10vh"
-          right="10vw"
           onDrag={() => windowDragHandler(1)}
           zIndex={getZIndex(1)}
           isActive={activeWindow === 1}
+          onFocus={() => setActiveWindow(1)}
         />
       </CheckeredBackground>
     </AppWrapper>

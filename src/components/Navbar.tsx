@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { styled } from '@linaria/react';
 import { css, cx } from '@linaria/core';
 import { colors, navbarHeight } from '../styles/theme';
@@ -21,8 +21,8 @@ export type NavbarProps = {
 const Wrapper = styled.div`
   background-color: ${colors.background};
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 25px;
   height: ${navbarHeight}px;
   padding: 0 40px;
   border-bottom: 2px solid ${colors.foreground};
@@ -45,32 +45,51 @@ const Heading = styled.h3`
   }
 `;
 
-const centerTitleStyles = css`
-  justify-content: center;
-`;
-
 // TODO: fix this so the background position is right
 const activeStyles = css`
   background-image: linear-gradient(${colors.foreground} 2px, transparent 1px);
   background-size: auto 5px;
 `;
 
-// TODO: draggable header styles
-// TODO: show current time
+const linkWrapperStyles = css`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+const linkStyles = css`
+  display: flex;
+  gap: 25px;
+`;
+
 export const Navbar: React.FC<NavbarProps> = ({ links, title, isActive }) => {
-  const renderLinks = () =>
-    links?.map(({ name, to }, index) => (
-      <Link href={to} rel="noreferrer">
-        <Heading key={index}>{name}</Heading>
-      </Link>
-    ));
+  const renderedLinks = useMemo(
+    () => (
+      <div className={linkStyles}>
+        {links?.map(({ name, to }, index) => (
+          <Link href={to} rel="noreferrer">
+            <Heading key={index}>{name}</Heading>
+          </Link>
+        ))}
+      </div>
+    ),
+    [links]
+  );
+
+  const renderedClock = useMemo(() => {
+    const date = new Date();
+    return <Heading>{date.toDateString()}</Heading>;
+  }, []);
 
   return (
-    <Wrapper
-      className={cx(navbarClassName, !links ? centerTitleStyles : undefined, isActive ? activeStyles : undefined)}
-    >
+    <Wrapper className={cx(navbarClassName, isActive ? activeStyles : undefined)}>
       {title ? <Heading>{title}</Heading> : null}
-      {links ? renderLinks() : null}
+      {links ? (
+        <div className={linkWrapperStyles}>
+          {links ? renderedLinks : null}
+          {links ? renderedClock : null}
+        </div>
+      ) : null}
     </Wrapper>
   );
 };

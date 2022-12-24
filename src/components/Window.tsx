@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import { styled } from '@linaria/react';
 import { css, cx } from '@linaria/core';
 import Draggable from 'react-draggable';
@@ -47,6 +47,8 @@ export type WindowProps = {
   onDrag?: () => void;
   /** When Window is actively being dragged, has focus, or was the last window to have focus  */
   isActive?: boolean;
+  /** Callback fired when window attains focus */
+  onFocus?: () => void;
 };
 
 // TODO: scroll doesn't work on mobile
@@ -58,11 +60,16 @@ export const Window = ({
   width = 'min-content',
   onDrag,
   isActive,
+  onFocus,
   ...styleProps
 }: WindowProps) => {
   const onStartDrag = useCallback(() => {
     onDrag?.();
   }, [onDrag]);
+
+  const handleContentClick = useCallback(() => {
+    onFocus?.();
+  }, [onFocus]);
 
   return (
     <Draggable onStart={onStartDrag} handle={`.${navbarClassName}`}>
@@ -75,7 +82,9 @@ export const Window = ({
         }}
       >
         <Navbar title={title} isActive={isActive} />
-        <Content style={{ padding: '10px 10px 10px 20px' }}>{children}</Content>
+        <Content style={{ padding: '10px 10px 10px 20px' }} onClick={handleContentClick}>
+          {children}
+        </Content>
       </Wrapper>
     </Draggable>
   );

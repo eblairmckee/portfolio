@@ -3,13 +3,13 @@ import { Window, WindowProps } from '../Window';
 
 export const Bio = (props: Omit<WindowProps, 'title' | 'children'>) => (
   <Window title="Welcome" width="80vw" maxWidth="550px" height="min(70vh, 500px)" roundedBorder {...props}>
-    <h1>👋🏼 Hey, I'm Blair!</h1>
-    <h2>I'm a frontend developer from Chicago</h2>
-    <h3>I've been building things for the web for 5 years</h3>
+    <h1>Hey, I'm Blair.</h1>
+    <h2>I'm a frontend developer from Chicago.</h2>
+    <h3>I've been building things for the web for 5 years. </h3>
     <p>
-      While working as a copywriter, I taught myself how to code, so I could control how my content was being presented
-      on our websites. I picked up WordPress soon after, and freelanced websites and single page apps for defense
-      contractors in my hometown of DC.
+      I taught myself how to code when I was working as a copywriter, so I could control how my content was being
+      presented on our company websites. I picked up WordPress soon after, and freelanced websites and single page apps
+      for defense contractors in my hometown of DC.
     </p>
     <p>
       I then landed a full time developer job at a healthcare tech company, Rally Health, which had just been acquired

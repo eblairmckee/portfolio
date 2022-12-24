@@ -76,6 +76,7 @@ function App() {
         <meta name="description" content="Blair McKee's personal portfolio" />
       </Helmet>
       <CheckeredBackground>
+        {/* TODO: add a menu that opens a color picker window */}
         <Navbar links={navItems} />
         {/* Draggable items lower in the DOM will overlay previous ones */}
         <ul>

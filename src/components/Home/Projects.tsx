@@ -2,6 +2,7 @@ import React from 'react';
 import { Window, WindowProps } from '../Window';
 
 // TODO: I don't like this. what else could I add here?
+// TODO: replace with theme color picker?
 export const Projects = (props: Omit<WindowProps, 'title' | 'children'>) => (
   <Window roundedBorder title="Side Projects" width="70vw" maxWidth="300px" {...props}>
     <p>

@@ -37,7 +37,7 @@ export const Stack = (props: Omit<WindowProps, 'title' | 'children'>) => {
       maxWidth="420px"
       navigationNode={
         <div className={navigationStyles}>
-          <p>7 items</p>
+          <p>9 items</p>
           <p>775K in disk</p>
           <p>4k available</p>
         </div>

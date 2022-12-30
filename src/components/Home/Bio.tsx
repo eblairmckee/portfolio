@@ -22,9 +22,5 @@ export const Bio = (props: Omit<WindowProps, 'title' | 'children'>) => (
       Native Fabric architecture within our design system. I also helped design a "bootcamp project" program for new
       hires and mentored dozens of cohorts through their first 30 days at Coinbase.
     </p>
-    <p>
-      Throughout my career I've been an active speaker sharing my work and learnings within internal communities and
-      conferences.
-    </p>
   </Window>
 );

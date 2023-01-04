@@ -9,6 +9,7 @@ const navigationStyles = css`
   justify-content: space-between;
   padding: 5px 20px;
   border-bottom: 2px solid ${colors.foreground};
+  z-index: 3;
   > p {
     font-size: 14px;
     margin-block-start: 0;

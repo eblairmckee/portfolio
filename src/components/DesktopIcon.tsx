@@ -10,6 +10,7 @@ const Wrapper = styled.li`
   flex-direction: column;
   justify-content: center;
   position: absolute;
+  z-index: 1;
 `;
 
 const Label = styled.div`
@@ -32,11 +33,12 @@ type DesktopIconProps = {
   left?: number | string;
   right?: number | string;
   bottom?: number | string;
-  /** @default 80 */
+  /** @default 70 */
   height?: number;
 };
 
-export const DesktopIcon = ({ name, to, label, height = 80, ...styleProps }: DesktopIconProps) => {
+// TODO: add a zindex lower than navigation
+export const DesktopIcon = ({ name, to, label, height = 70, ...styleProps }: DesktopIconProps) => {
   const handleDoubleClick = useCallback(() => {
     if (to) {
       window.open(to, '_blank');

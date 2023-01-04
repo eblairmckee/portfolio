@@ -32,6 +32,7 @@ const Wrapper = styled.div`
   position: sticky;
   top: 0;
   left: 0;
+  z-index: 3;
 `;
 
 const Heading = styled.h3`

@@ -1,6 +1,6 @@
-import { createContext, useContext } from 'react';
+import { createContext } from 'react';
 import { CSSColors } from './theme';
 
-export const ThemeContext: Record<string, keyof typeof CSSColors> = createContext({
+export const ThemeContext = createContext({
   themeColor: Object.values(CSSColors),
 });

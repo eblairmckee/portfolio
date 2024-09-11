@@ -30,7 +30,7 @@ const Content = styled.div`
 export type WindowProps = {
   roundedBorder?: boolean;
   title: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   /** @default min-content */
   height?: number | string;
   /** @default min-content */
@@ -50,6 +50,7 @@ export type WindowProps = {
   onFocus?: () => void;
   /** Renders content within the window, but outside of the content */
   navigationNode?: React.ReactNode;
+  editable?: boolean;
 };
 
 // TODO: scroll doesn't work on mobile
@@ -63,6 +64,7 @@ export const Window = ({
   isActive,
   onFocus,
   navigationNode,
+  editable,
   ...styleProps
 }: WindowProps) => {
   const onStartDrag = useCallback(() => {
@@ -85,7 +87,11 @@ export const Window = ({
       >
         <Navbar title={title} isActive={isActive} />
         {navigationNode || null}
-        <Content style={{ padding: '10px 10px 10px 20px' }} onClick={handleContentClick}>
+        <Content
+          style={{ padding: '10px 10px 10px 20px', height: '100%' }}
+          onClick={handleContentClick}
+          contentEditable={editable}
+        >
           {children}
         </Content>
       </Wrapper>

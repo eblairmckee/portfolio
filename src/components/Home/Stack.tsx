@@ -49,12 +49,12 @@ export const Stack = (props: Omit<WindowProps, 'title' | 'children'>) => {
         <DesktopIcon height={60} label="Typescript" name="folder" top={topRowYOffset} left={firstColumnXOffset} />
         <DesktopIcon height={60} label="React Native" name="folder" top={topRowYOffset} left={secondColumnXOffset} />
         <DesktopIcon height={60} label="React" name="folder" top={topRowYOffset} left={thirdColumnXOffset} />
-        <DesktopIcon height={60} label="GraphQL" name="folder" top={secondRowYOffset} left={firstColumnXOffset} />
-        <DesktopIcon height={60} label="Next" name="folder" top={secondRowYOffset} left={secondColumnXOffset} />
-        <DesktopIcon height={60} label="Typescript" name="folder" top={secondRowYOffset} left={thirdColumnXOffset} />
+        <DesktopIcon height={60} label="Node" name="folder" top={secondRowYOffset} left={firstColumnXOffset} />
+        <DesktopIcon height={60} label="NextJS" name="folder" top={secondRowYOffset} left={secondColumnXOffset} />
+        <DesktopIcon height={60} label="Yarn" name="folder" top={secondRowYOffset} left={thirdColumnXOffset} />
         <DesktopIcon height={60} label="CSS" name="folder" top={thirdRowYOffset} left={firstColumnXOffset} />
         <DesktopIcon height={60} label="NX" name="folder" top={thirdRowYOffset} left={secondColumnXOffset} />
-        <DesktopIcon height={60} label="Node" name="folder" top={thirdRowYOffset} left={thirdColumnXOffset} />
+        <DesktopIcon height={60} label="Jest" name="folder" top={thirdRowYOffset} left={thirdColumnXOffset} />
       </ul>
     </Window>
   );

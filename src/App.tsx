@@ -3,7 +3,8 @@ import { styled } from '@linaria/react';
 import { Helmet } from 'react-helmet';
 
 import { Navbar, NavItemLinkProps } from './components/Navbar';
-import { Bio, Projects, Stack } from './components/Home';
+import { Bio } from './components/Home/Bio';
+import { Stack } from './components/Home/Stack';
 import { colors, navbarHeight, roundedBorder } from './styles/theme';
 import { DesktopIcon } from './components/DesktopIcon';
 
@@ -102,19 +103,11 @@ function App() {
             right={desktopIconXOffset}
           />
         </ul>
-        <Projects
-          bottom="5vh"
-          right="max(10vw, 50px)"
-          onDrag={() => windowDragHandler(3)}
-          zIndex={getZIndex(3)}
-          isActive={activeWindow === 3}
-          onFocus={() => setActiveWindow(3)}
-        />
         <Stack
           top="20vh"
           right="20vw"
           onDrag={() => windowDragHandler(2)}
-          zIndex={getZIndex(2)}
+          zIndex={getZIndex(1)}
           isActive={activeWindow === 2}
           onFocus={() => setActiveWindow(2)}
         />
